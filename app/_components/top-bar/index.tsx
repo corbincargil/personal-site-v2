@@ -32,7 +32,9 @@ export default function TopBar() {
                     </MenubarContent>
                 </MenubarMenu>
                 <MenubarMenu>
-                    <MenubarTrigger className="font-bold mx-1 h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">{FinderItem.label}</MenubarTrigger>
+                    <MenubarTrigger className="font-bold mx-1 h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">
+                        {FinderItem.label}
+                    </MenubarTrigger>
                     <MenubarContent>
                         {FinderItem.items.map((item) => (
                             <MenubarItem key={item}>{item}</MenubarItem>
@@ -41,7 +43,9 @@ export default function TopBar() {
                 </MenubarMenu>
                 {MenuItems.map((item) => (
                     <MenubarMenu key={item.label}>
-                        <MenubarTrigger className="h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">{item.label}</MenubarTrigger>
+                        <MenubarTrigger className="h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">
+                            {item.label}
+                        </MenubarTrigger>
                         <MenubarContent>
                             {item.items.map((item) => (
                                 <MenubarItem key={item}>{item}</MenubarItem>
