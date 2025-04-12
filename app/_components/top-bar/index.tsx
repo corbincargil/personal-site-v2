@@ -9,16 +9,19 @@ import {
 } from "@/components/ui/menubar";
 import Image from "next/image";
 import { LogoItem, FinderItem, MenuItems } from "./menu-items";
+import DateTime from "./_components/date-time";
+import { CircleUserRound } from "lucide-react";
+import Battery from "./_components/battery";
 
 export default function TopBar() {
     return (
-        <div className="flex flex-row items-center h-6 w-full bg-foreground/60">
+        <div className="px-2 flex flex-row justify-between items-center h-6 w-full bg-foreground/60">
             <Menubar className="flex-row flex gap-2 text-background p-0">
                 <MenubarMenu>
                     <MenubarTrigger className="focus:bg-inherit focus:text-inherit">
                         <Image
                             src="/initials_black_cropped.png"
-                            className="mx-1 aspect-square object-contain"
+                            className="w-5 h-5 aspect-square"
                             alt="corbin cargil logo white"
                             width={22}
                             height={22}
@@ -54,6 +57,11 @@ export default function TopBar() {
                     </MenubarMenu>
                 ))}
             </Menubar>
+            <div className="flex flex-row items-center gap-3">
+                <CircleUserRound className="w-4 h-4 text-background" />
+                <Battery />
+                <DateTime />
+            </div>
         </div>
     );
 }
