@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/menubar";
 import { Menubar } from "@radix-ui/react-menubar";
 import BatteryIcon from "./battery-icon";
+import BatteryModal from "./battery-modal";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 
 export interface BatteryData {
     charging: boolean;
@@ -55,34 +57,37 @@ export default function Battery() {
     if (!batteryData) return null;
 
     return (
-        <Menubar>
-            <MenubarMenu>
-                <MenubarTrigger className="h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">
-                    <BatteryIcon batteryData={batteryData} />
-                </MenubarTrigger>
-                <MenubarContent className="-left-65 w-75">
-                    <MenubarItem className="justify-between" inert>
-                        <span className="font-semibold">Battery</span>
-                        <span className="opacity-50">{Math.round(batteryData.level)}%</span>
-                    </MenubarItem>
-                    <MenubarItem className="text-sm opacity-50" inert>
-                        <span className="">
-                            Power source: {batteryData.charging ? "Power Adapter" : "Battery"}
-                        </span>
-                        <span className="opacity-50">
-                            {batteryData.charging ? " (Charging)" : ""}
-                        </span>
-                    </MenubarItem>
-                    <MenubarSeparator className="mx-2 my-2" />
-                    <MenubarItem className="text-sm opacity-50" inert>
-                        <span className="">No apps using significant energy</span>
-                    </MenubarItem>
-                    <MenubarSeparator className="mx-2 my-2" />
-                    <MenubarItem className="text-sm">
-                        <span className="">Manage battery monitoring preferences...</span>
-                    </MenubarItem>
-                </MenubarContent>
-            </MenubarMenu>
-        </Menubar>
+        <Dialog>
+            <Menubar>
+                <MenubarMenu>
+                    <MenubarTrigger className="h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">
+                        <BatteryIcon batteryData={batteryData} />
+                    </MenubarTrigger>
+                    <MenubarContent className="-left-65 w-75">
+                        <MenubarItem className="justify-between" inert>
+                            <span className="font-semibold">Battery</span>
+                            <span className="opacity-50">{Math.round(batteryData.level)}%</span>
+                        </MenubarItem>
+                        <MenubarItem className="text-sm opacity-50" inert>
+                            <span>
+                                Power source: {batteryData.charging ? "Power Adapter" : "Battery"}
+                            </span>
+                        </MenubarItem>
+                        <MenubarSeparator className="mx-2 my-2" />
+                        <MenubarItem className="text-sm opacity-50" inert>
+                            <span>No apps using significant energy</span>
+                        </MenubarItem>
+                        <MenubarSeparator className="mx-2 my-2" />
+                        <DialogTrigger asChild>
+                            <MenubarItem className="text-sm">
+                                <span className="">Manage battery monitoring preferences...</span>
+                            </MenubarItem>
+                        </DialogTrigger>
+                    </MenubarContent>
+                </MenubarMenu>
+            </Menubar>
+
+            <BatteryModal />
+        </Dialog>
     );
 }
