@@ -13,7 +13,7 @@ import { LogoItem, FinderItem, MenuItems } from "./menu-items";
 export default function TopBar() {
     return (
         <div className="flex flex-row items-center h-6 w-full bg-foreground/60">
-            <Menubar className="flex-row flex gap-2 text-background">
+            <Menubar className="flex-row flex gap-2 text-background p-0">
                 <MenubarMenu>
                     <MenubarTrigger>
                         <Image
@@ -32,9 +32,7 @@ export default function TopBar() {
                     </MenubarContent>
                 </MenubarMenu>
                 <MenubarMenu>
-                    <MenubarTrigger>
-                        <p className="font-bold mx-1">{FinderItem.label}</p>
-                    </MenubarTrigger>
+                    <MenubarTrigger className="font-bold mx-1 h-full py-1 rounded-sm">{FinderItem.label}</MenubarTrigger>
                     <MenubarContent>
                         {FinderItem.items.map((item) => (
                             <MenubarItem key={item}>{item}</MenubarItem>
@@ -43,7 +41,7 @@ export default function TopBar() {
                 </MenubarMenu>
                 {MenuItems.map((item) => (
                     <MenubarMenu key={item.label}>
-                        <MenubarTrigger>{item.label}</MenubarTrigger>
+                        <MenubarTrigger className="h-full py-1 rounded-sm">{item.label}</MenubarTrigger>
                         <MenubarContent>
                             {item.items.map((item) => (
                                 <MenubarItem key={item}>{item}</MenubarItem>

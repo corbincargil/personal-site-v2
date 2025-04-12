@@ -10,9 +10,9 @@ const FinderItem = {
 
 const MenuItems = [
     {
-    label: "File",
-    items: ["New Tab", "New Window", "Share", "Print"],
-},
+        label: "File",
+        items: ["New Tab", "New Window", "Share", "Print"],
+    },
     {
         label: "Edit",
         items: ["Undo", "Redo", "Cut", "Copy", "Paste"],
