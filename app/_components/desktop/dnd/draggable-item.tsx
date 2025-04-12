@@ -13,12 +13,7 @@ interface DraggableItemProps {
 }
 
 /** Wrapper for DesktopItems to make them draggable. */
-export default function DraggableItem({
-    id,
-    isDragging,
-    children,
-    position,
-}: DraggableItemProps) {
+export default function DraggableItem({ id, isDragging, children, position }: DraggableItemProps) {
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id,
     });

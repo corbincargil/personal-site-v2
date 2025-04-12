@@ -24,24 +24,17 @@ export default function Desktop() {
             sensors={sensors}
             collisionDetection={pointerWithin}
             onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-        >
+            onDragEnd={handleDragEnd}>
             <div className="relative w-full h-full">
                 {isClient &&
                     items.map((item) => (
-                        <DraggableItem
-                            key={item.id}
-                            id={item.id}
-                            position={item.position}
-                        >
+                        <DraggableItem key={item.id} id={item.id} position={item.position}>
                             <DesktopItem
                                 id={item.id}
                                 name={item.name}
                                 icon={item.icon}
                                 isSelected={item.id === selectedId}
-                                setSelected={(selected) =>
-                                    setSelectedId(selected ? item.id : null)
-                                }
+                                setSelected={(selected) => setSelectedId(selected ? item.id : null)}
                             />
                         </DraggableItem>
                     ))}

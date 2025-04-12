@@ -6,10 +6,7 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function Menubar({
-    className,
-    ...props
-}: React.ComponentProps<typeof MenubarPrimitive.Root>) {
+function Menubar({ className, ...props }: React.ComponentProps<typeof MenubarPrimitive.Root>) {
     return (
         <MenubarPrimitive.Root
             data-slot="menubar"
@@ -22,33 +19,20 @@ function Menubar({
     );
 }
 
-function MenubarMenu({
-    ...props
-}: React.ComponentProps<typeof MenubarPrimitive.Menu>) {
+function MenubarMenu({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Menu>) {
     return <MenubarPrimitive.Menu data-slot="menubar-menu" {...props} />;
 }
 
-function MenubarGroup({
-    ...props
-}: React.ComponentProps<typeof MenubarPrimitive.Group>) {
+function MenubarGroup({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Group>) {
     return <MenubarPrimitive.Group data-slot="menubar-group" {...props} />;
 }
 
-function MenubarPortal({
-    ...props
-}: React.ComponentProps<typeof MenubarPrimitive.Portal>) {
+function MenubarPortal({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Portal>) {
     return <MenubarPrimitive.Portal data-slot="menubar-portal" {...props} />;
 }
 
-function MenubarRadioGroup({
-    ...props
-}: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
-    return (
-        <MenubarPrimitive.RadioGroup
-            data-slot="menubar-radio-group"
-            {...props}
-        />
-    );
+function MenubarRadioGroup({ ...props }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
+    return <MenubarPrimitive.RadioGroup data-slot="menubar-radio-group" {...props} />;
 }
 
 function MenubarTrigger({
@@ -128,8 +112,7 @@ function MenubarCheckboxItem({
                 className
             )}
             checked={checked}
-            {...props}
-        >
+            {...props}>
             <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
                 <MenubarPrimitive.ItemIndicator>
                     <CheckIcon className="size-4" />
@@ -152,8 +135,7 @@ function MenubarRadioItem({
                 "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
                 className
             )}
-            {...props}
-        >
+            {...props}>
             <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
                 <MenubarPrimitive.ItemIndicator>
                     <CircleIcon className="size-2 fill-current" />
@@ -175,10 +157,7 @@ function MenubarLabel({
         <MenubarPrimitive.Label
             data-slot="menubar-label"
             data-inset={inset}
-            className={cn(
-                "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
-                className
-            )}
+            className={cn("px-2 py-1.5 text-sm font-medium data-[inset]:pl-8", className)}
             {...props}
         />
     );
@@ -197,25 +176,17 @@ function MenubarSeparator({
     );
 }
 
-function MenubarShortcut({
-    className,
-    ...props
-}: React.ComponentProps<"span">) {
+function MenubarShortcut({ className, ...props }: React.ComponentProps<"span">) {
     return (
         <span
             data-slot="menubar-shortcut"
-            className={cn(
-                "text-muted-foreground ml-auto text-xs tracking-widest",
-                className
-            )}
+            className={cn("text-muted-foreground ml-auto text-xs tracking-widest", className)}
             {...props}
         />
     );
 }
 
-function MenubarSub({
-    ...props
-}: React.ComponentProps<typeof MenubarPrimitive.Sub>) {
+function MenubarSub({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Sub>) {
     return <MenubarPrimitive.Sub data-slot="menubar-sub" {...props} />;
 }
 
@@ -235,8 +206,7 @@ function MenubarSubTrigger({
                 "focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[inset]:pl-8",
                 className
             )}
-            {...props}
-        >
+            {...props}>
             {children}
             <ChevronRightIcon className="ml-auto h-4 w-4" />
         </MenubarPrimitive.SubTrigger>

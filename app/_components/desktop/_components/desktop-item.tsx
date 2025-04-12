@@ -27,8 +27,7 @@ export default function DesktopItem({
                 setSelected?.(true);
             }}
             onBlur={() => setSelected?.(false)}
-            tabIndex={0}
-        >
+            tabIndex={0}>
             <DesktopIcon name={name} icon={icon} isSelected={isSelected} />
         </div>
     );

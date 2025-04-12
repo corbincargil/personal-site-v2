@@ -15,11 +15,7 @@ interface UseDesktopDndProps {
 }
 
 /** Handles drag and drop operations for desktop items */
-export function useDesktopDnd({
-    items,
-    onItemsChange,
-    onSelect,
-}: UseDesktopDndProps) {
+export function useDesktopDnd({ items, onItemsChange, onSelect }: UseDesktopDndProps) {
     const sensors = useSensors(
         useSensor(MouseSensor, {
             activationConstraint: {
