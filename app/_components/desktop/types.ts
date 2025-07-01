@@ -14,6 +14,8 @@ export interface DesktopItemType {
     name: string;
     icon: string;
     position: Position;
+    type: "file" | "folder";
+    contents?: DesktopItemType[];
 }
 
 export interface DesktopItemProps {
@@ -24,4 +26,5 @@ export interface DesktopItemProps {
     isSelected?: boolean;
     setSelected?: (selected: boolean) => void;
     isDragging?: boolean;
+    onDoubleClick?: () => void;
 }
