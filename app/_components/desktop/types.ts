@@ -1,3 +1,5 @@
+import { WindowType } from "../windows/types";
+
 export interface Position {
     x: number;
     y: number;
@@ -16,6 +18,16 @@ export interface DesktopItemType {
     position: Position;
     type: "file" | "folder";
     contents?: DesktopItemType[];
+    windowType?: WindowType;
+    windowData?: {
+        content?: string;
+        fileName?: string;
+        menuItems?: Array<{
+            id: string;
+            label: string;
+            action?: () => void;
+        }>;
+    };
 }
 
 export interface DesktopItemProps {
