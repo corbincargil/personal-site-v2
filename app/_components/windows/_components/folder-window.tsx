@@ -19,7 +19,7 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
     const [isResizing, setIsResizing] = useState(false);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 0, height: 0 });
-    const [dimensions, setDimensions] = useState({ width: 480, height: 320 }); // w-120 h-80
+    const [dimensions, setDimensions] = useState({ width: 480, height: 320 });
     const { closeWindow, updateWindowPosition, focusWindow } = useWindows();
 
     const handleDragStart = useCallback((e: React.MouseEvent) => {

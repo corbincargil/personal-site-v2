@@ -19,7 +19,7 @@ export default function TextFileWindow({ windowData }: TextFileWindowProps) {
     const [isResizing, setIsResizing] = useState(false);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 0, height: 0 });
-    const [dimensions, setDimensions] = useState({ width: 384, height: 256 });
+    const [dimensions, setDimensions] = useState({ width: 432, height: 320 });
     const [content, setContent] = useState(windowData.content);
     const { closeWindow, updateWindowPosition, focusWindow } = useWindows();
 

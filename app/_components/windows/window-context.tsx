@@ -21,8 +21,34 @@ export function WindowProvider({ children }: { children: React.ReactNode }) {
             setWindows((prev) => {
                 const newWindows = new Map(prev);
 
+                const offset = 20;
+                let newPosition = windowData.position;
+
+                const existingWindows = Array.from(newWindows.values());
+                let attempts = 0;
+                const maxAttempts = 10;
+
+                while (attempts < maxAttempts) {
+                    const isOverlapping = existingWindows.some(
+                        (window) =>
+                            Math.abs(window.position.x - newPosition.x) < 10 &&
+                            Math.abs(window.position.y - newPosition.y) < 10
+                    );
+
+                    if (!isOverlapping) {
+                        break;
+                    }
+
+                    newPosition = {
+                        x: newPosition.x + offset,
+                        y: newPosition.y + offset,
+                    };
+                    attempts++;
+                }
+
                 const updatedWindowData = {
                     ...windowData,
+                    position: newPosition,
                     zIndex: getNextZIndex(),
                     isFocused: true,
                 };
