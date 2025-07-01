@@ -2,23 +2,37 @@
 
 import DesktopItem from "./_components/desktop-item";
 import { initialItems } from "./initial-items";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DndContext, pointerWithin } from "@dnd-kit/core";
+import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { useDesktopDnd } from "./dnd/desktop-dnd";
 import DraggableItem from "./dnd/draggable-item";
 import { useClientOnly } from "@/app/hooks/use-client-only";
 import { DesktopItemType } from "./types";
 import { useWindows } from "../windows/use-windows";
+import { loadDesktopItems, saveDesktopItems } from "../storage/storage-utils";
 
 export default function Desktop() {
-    const [items, setItems] = useState(initialItems);
+    const [items, setItems] = useState<DesktopItemType[]>(initialItems);
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const isClient = useClientOnly();
     const { openFolderWindow, openTextFileWindow } = useWindows();
 
+    useEffect(() => {
+        if (!isClient) return;
+
+        const storedItems = loadDesktopItems();
+        if (storedItems) {
+            setItems(storedItems);
+        }
+    }, [isClient]);
+
     const { sensors, handleDragStart, handleDragEnd } = useDesktopDnd({
         items,
-        onItemsChange: setItems,
+        onItemsChange: (newItems) => {
+            setItems(newItems);
+            saveDesktopItems(newItems);
+        },
         onSelect: setSelectedId,
     });
 
@@ -46,6 +60,7 @@ export default function Desktop() {
             sensors={sensors}
             collisionDetection={pointerWithin}
             onDragStart={handleDragStart}
+            modifiers={[restrictToWindowEdges]}
             onDragEnd={handleDragEnd}>
             <div className="relative w-full h-full">
                 {isClient &&
