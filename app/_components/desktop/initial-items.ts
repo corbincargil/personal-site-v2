@@ -10,7 +10,7 @@ export const initialItems: DesktopItemType[] = [
         windowType: "text-file",
         windowData: {
             content:
-                "Hi there, my name is Corbin and I'm a full stack developer and business analyst based in Texas. I'm passionate about creating high grade web apps that allow users to do focus less the software and more on getting stuff done. I enjoy problem solving, reading, and working out.",
+                "Hi there, my name is Corbin and I'm a full stack developer and business analyst based in Texas. I'm passionate about creating high grade web apps that allow users to focus less on software and more on getting stuff done. I enjoy problem solving, reading, and working out.",
             fileName: "Bio.txt",
         },
     },
@@ -24,17 +24,29 @@ export const initialItems: DesktopItemType[] = [
         contents: [
             {
                 id: "project-1",
-                name: "Project 1",
+                name: "Project 1.txt",
                 icon: "/file-text.svg",
                 position: { x: 16, y: 36 },
                 type: "file",
+                windowType: "text-file",
+                windowData: {
+                    content:
+                        "This is a project that I'm working on. It's a web app that allows users to...",
+                    fileName: "Project 1.txt",
+                },
             },
             {
                 id: "project-2",
-                name: "Project 2",
+                name: "Project 2.txt",
                 icon: "/file-text.svg",
                 position: { x: 96, y: 36 },
                 type: "file",
+                windowType: "text-file",
+                windowData: {
+                    content:
+                        "This is a project that I'm working on. It's a web app that allows users to...",
+                    fileName: "Project 2.txt",
+                },
             },
         ],
     },

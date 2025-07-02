@@ -19,7 +19,7 @@ export function useDesktopDnd({ items, onItemsChange, onSelect }: UseDesktopDndP
     const sensors = useSensors(
         useSensor(MouseSensor, {
             activationConstraint: {
-                distance: 10,
+                distance: 1,
             },
         }),
         useSensor(TouchSensor, {

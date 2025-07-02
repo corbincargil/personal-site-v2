@@ -7,6 +7,7 @@ import DesktopItem from "../../desktop/_components/desktop-item";
 import { useClientOnly } from "@/app/hooks/use-client-only";
 import { useWindows } from "../use-windows";
 import WindowHeader from "./window-header";
+import { DesktopItemType } from "../../desktop/types";
 
 interface FolderWindowProps {
     windowData: FolderWindowData;
@@ -20,7 +21,10 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 0, height: 0 });
     const [dimensions, setDimensions] = useState({ width: 480, height: 320 });
-    const { closeWindow, updateWindowPosition, focusWindow } = useWindows();
+    const [selectedId, setSelectedId] = useState<string | null>(null);
+
+    const { closeWindow, updateWindowPosition, focusWindow, openFolderWindow, openTextFileWindow } =
+        useWindows();
 
     const handleDragStart = useCallback((e: React.MouseEvent) => {
         e.preventDefault();
@@ -113,6 +117,25 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
         return null;
     }
 
+    const handleDoubleClick = (item: DesktopItemType) => {
+        if (item.windowType === "folder" && item.contents) {
+            openFolderWindow({
+                id: item.id,
+                title: item.name,
+                position: { x: 150, y: 150 },
+                contents: item.contents,
+            });
+        } else if (item.windowType === "text-file" && item.windowData) {
+            openTextFileWindow({
+                id: item.id,
+                title: item.windowData.fileName || item.name,
+                position: { x: 150, y: 150 },
+                content: item.windowData.content || "",
+                fileName: item.windowData.fileName || item.name,
+            });
+        }
+    };
+
     return (
         <div
             ref={windowRef}
@@ -144,11 +167,14 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
                 <div className="grid grid-cols-4 gap-4">
                     {windowData.contents.map((item) => (
                         <DesktopItem
-                            key={item.id}
                             id={item.id}
+                            key={item.id}
                             name={item.name}
                             icon={item.icon}
                             position={item.position}
+                            isSelected={item.id === selectedId}
+                            setSelected={(selected) => setSelectedId(selected ? item.id : null)}
+                            onDoubleClick={() => handleDoubleClick(item)}
                         />
                     ))}
                 </div>
