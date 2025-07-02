@@ -10,7 +10,7 @@ export default function EtchASketchComponent() {
     }, []);
 
     return isClient ? (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div>
             <etch-a-sketch />
         </div>
     ) : (

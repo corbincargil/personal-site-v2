@@ -143,7 +143,7 @@ export default function ComponentWindow({ windowData }: ComponentWindowProps) {
             />
             <div
                 className={cn(
-                    "p-4 h-full overflow-auto [&::-webkit-scrollbar]:w-[2px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-stone-600/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-stone-600/70",
+                    "p-1 h-full overflow-auto [&::-webkit-scrollbar]:w-[2px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-stone-600/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-stone-600/70",
                     !windowData.isFocused && "opacity-50"
                 )}>
                 {windowData.content}
