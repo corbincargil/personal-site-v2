@@ -33,7 +33,7 @@ export default function Battery() {
         }
         return false;
     });
-    const { openComponentWindow } = useWindows();
+    const { openComponentWindow, closeWindow } = useWindows();
 
     useEffect(() => {
         if (isOptedOut) {
@@ -85,14 +85,16 @@ export default function Battery() {
                     onOptOut={() => {
                         setIsOptedOut(true);
                         localStorage.setItem(BATTERY_MONITORING_OPTED_OUT_KEY, "true");
+                        closeWindow("battery");
                     }}
                     onOptIn={() => {
                         setIsOptedOut(false);
                         localStorage.removeItem(BATTERY_MONITORING_OPTED_OUT_KEY);
+                        closeWindow("battery");
                     }}
                 />
             ),
-            resizable: true,
+            resizable: false,
             size: { width: 400, height: 300 },
         });
     };

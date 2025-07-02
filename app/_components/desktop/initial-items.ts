@@ -9,14 +9,15 @@ export const initialItems: DesktopItemType[] = [
         type: "file",
         windowType: "text-file",
         windowData: {
-            content: "Hello, I'm a developer...",
+            content:
+                "Hi there, my name is Corbin and I'm a full stack developer and business analyst based in Texas. I'm passionate about creating high grade web apps that allow users to do focus less the software and more on getting stuff done. I enjoy problem solving, reading, and working out.",
             fileName: "Bio.txt",
         },
     },
     {
         id: "projects",
         name: "Projects",
-        icon: "/folder-code.svg",
+        icon: "/folder-closed.svg",
         position: { x: 100, y: 20 },
         type: "folder",
         windowType: "folder",

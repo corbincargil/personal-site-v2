@@ -10,15 +10,15 @@ export function DesktopIcon({ name, icon, isSelected }: DesktopIconProps) {
                 <Image
                     src={icon}
                     alt={name}
-                    width={48}
-                    height={48}
+                    width={56}
+                    height={56}
                     className="select-none pointer-events-none"
                     draggable={false}
                 />
             </div>
             <p
-                className={`text-xs text-center px-1 rounded line-clamp-2
-                ${isSelected ? "bg-blue-800 text-white" : "text-primary"}`}>
+                className={`text-xs font-semibold text-center px-1 rounded line-clamp-2
+                ${isSelected ? "bg-blue-700 text-white" : "text-primary"}`}>
                 {name}
             </p>
         </>
