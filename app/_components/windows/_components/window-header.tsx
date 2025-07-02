@@ -37,7 +37,7 @@ export default function WindowHeader({
                 )}>
                 {windowData.title}
             </div>
-            <div className="w-16" /> {/* Spacer for centering */}
+            <div className="w-16" />
         </div>
     );
 }

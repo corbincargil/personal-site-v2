@@ -1,6 +1,6 @@
 import { Position } from "../desktop/types";
 
-export type WindowType = "folder" | "text-file";
+export type WindowType = "folder" | "text-file" | "component";
 
 export interface BaseWindowData {
     id: string;
@@ -35,7 +35,14 @@ export interface TextFileWindowData extends BaseWindowData {
     fileName: string;
 }
 
-export type WindowData = FolderWindowData | TextFileWindowData;
+export interface ComponentWindowData extends BaseWindowData {
+    type: "component";
+    content: React.ReactNode;
+    size?: { width: number; height: number };
+    resizable?: boolean;
+}
+
+export type WindowData = FolderWindowData | TextFileWindowData | ComponentWindowData;
 
 export const isFolderWindow = (window: WindowData): window is FolderWindowData => {
     return window.type === "folder";
@@ -43,6 +50,10 @@ export const isFolderWindow = (window: WindowData): window is FolderWindowData =
 
 export const isTextFileWindow = (window: WindowData): window is TextFileWindowData => {
     return window.type === "text-file";
+};
+
+export const isComponentWindow = (window: WindowData): window is ComponentWindowData => {
+    return window.type === "component";
 };
 
 export interface WindowContextType {

@@ -1,5 +1,5 @@
 import { useWindowContext } from "./window-context";
-import { FolderWindowData, TextFileWindowData } from "./types";
+import { FolderWindowData, TextFileWindowData, ComponentWindowData } from "./types";
 
 export function useWindows() {
     const context = useWindowContext();
@@ -28,6 +28,18 @@ export function useWindows() {
         context.openWindow(windowData);
     };
 
+    const openComponentWindow = (
+        componentData: Omit<ComponentWindowData, "type" | "zIndex" | "isFocused">
+    ) => {
+        const windowData: ComponentWindowData = {
+            ...componentData,
+            type: "component",
+            zIndex: context.getNextZIndex(),
+            isFocused: true,
+        };
+        context.openWindow(windowData);
+    };
+
     return {
         windows: Array.from(context.windows.values()),
         focusedWindow: context.getFocusedWindow(),
@@ -39,6 +51,7 @@ export function useWindows() {
 
         openFolderWindow,
         openTextFileWindow,
+        openComponentWindow,
 
         getWindow: (id: string) => context.windows.get(id),
         hasWindow: (id: string) => context.windows.has(id),
