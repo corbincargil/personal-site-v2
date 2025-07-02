@@ -8,6 +8,7 @@ import { useClientOnly } from "@/app/hooks/use-client-only";
 import { useWindows } from "../use-windows";
 import WindowHeader from "./window-header";
 import { DesktopItemType } from "../../desktop/types";
+import { getComponentConfig } from "../../games/component-registry";
 
 interface FolderWindowProps {
     windowData: FolderWindowData;
@@ -23,8 +24,14 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
     const [dimensions, setDimensions] = useState({ width: 480, height: 320 });
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
-    const { closeWindow, updateWindowPosition, focusWindow, openFolderWindow, openTextFileWindow } =
-        useWindows();
+    const {
+        closeWindow,
+        updateWindowPosition,
+        focusWindow,
+        openFolderWindow,
+        openTextFileWindow,
+        openComponentWindow,
+    } = useWindows();
 
     const handleDragStart = useCallback((e: React.MouseEvent) => {
         e.preventDefault();
@@ -133,6 +140,18 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
                 content: item.windowData.content || "",
                 fileName: item.windowData.fileName || item.name,
             });
+        } else if (item.windowType === "component" && item.componentId) {
+            const config = getComponentConfig(item.componentId);
+            if (config) {
+                openComponentWindow({
+                    id: item.id,
+                    title: config.title,
+                    position: { x: 150, y: 150 },
+                    content: <config.component />,
+                    resizable: config.resizable,
+                    size: config.defaultSize,
+                });
+            }
         }
     };
 

@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className="dark">
+            <head>
+                <script src="https://unpkg.com/@corbincargil/etch-a-sketch"></script>
+            </head>
             <body className={`${roboto.variable} font-roboto`}>{children}</body>
         </html>
     );

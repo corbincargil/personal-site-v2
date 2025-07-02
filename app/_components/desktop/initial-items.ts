@@ -75,4 +75,13 @@ export const initialItems: DesktopItemType[] = [
                 "Something with a really long name to see what the text looks like im going to keep going until something happens that  i don't want to happen",
         },
     },
+    {
+        id: "etch-a-sketch",
+        name: "Etch A Sketch",
+        icon: "/etch-a-sketch.png",
+        position: { x: 20, y: 450 },
+        type: "file",
+        windowType: "component",
+        componentId: "etch-a-sketch",
+    },
 ];

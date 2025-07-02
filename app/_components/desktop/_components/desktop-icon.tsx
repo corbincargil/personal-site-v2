@@ -12,7 +12,7 @@ export function DesktopIcon({ name, icon, isSelected }: DesktopIconProps) {
                     alt={name}
                     width={56}
                     height={56}
-                    className="select-none pointer-events-none"
+                    className="select-none pointer-events-none rounded-lg"
                     draggable={false}
                 />
             </div>

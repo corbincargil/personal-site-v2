@@ -19,6 +19,7 @@ export interface DesktopItemType {
     type: "file" | "folder";
     contents?: DesktopItemType[];
     windowType?: WindowType;
+    componentId?: string;
     windowData?: {
         content?: string;
         fileName?: string;

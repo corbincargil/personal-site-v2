@@ -11,12 +11,13 @@ import { useClientOnly } from "@/app/hooks/use-client-only";
 import { DesktopItemType } from "./types";
 import { useWindows } from "../windows/use-windows";
 import { loadDesktopItems, saveDesktopItems } from "../storage/storage-utils";
+import { getComponentConfig } from "../games/component-registry";
 
 export default function Desktop() {
     const [items, setItems] = useState<DesktopItemType[]>(initialItems);
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const isClient = useClientOnly();
-    const { openFolderWindow, openTextFileWindow } = useWindows();
+    const { openFolderWindow, openTextFileWindow, openComponentWindow } = useWindows();
 
     useEffect(() => {
         if (!isClient) return;
@@ -52,6 +53,18 @@ export default function Desktop() {
                 content: item.windowData.content || "",
                 fileName: item.windowData.fileName || item.name,
             });
+        } else if (item.windowType === "component" && item.componentId) {
+            const config = getComponentConfig(item.componentId);
+            if (config) {
+                openComponentWindow({
+                    id: item.id,
+                    title: config.title,
+                    position: { x: 150, y: 150 },
+                    content: <config.component />,
+                    resizable: config.resizable,
+                    size: config.defaultSize,
+                });
+            }
         }
     };
 
