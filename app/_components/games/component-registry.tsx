@@ -1,4 +1,4 @@
-import { ComponentType, useState, useEffect } from "react";
+import { ComponentType } from "react";
 import EtchASketchComponent from "./etch-a-sketch";
 
 export interface ComponentConfig {

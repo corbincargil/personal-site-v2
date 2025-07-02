@@ -25,6 +25,16 @@ const placeholderBatteryData: BatteryData = {
     level: 100,
 };
 
+interface BatteryManager {
+    charging: boolean;
+    level: number;
+    addEventListener: (event: string, listener: () => void) => void;
+}
+
+interface NavigatorWithBattery extends Navigator {
+    getBattery: () => Promise<BatteryManager>;
+}
+
 export default function Battery() {
     const [batteryData, setBatteryData] = useState<BatteryData | null>(null);
     const [isOptedOut, setIsOptedOut] = useState(() => {
@@ -44,7 +54,7 @@ export default function Battery() {
         const getBatteryInfo = async () => {
             try {
                 if ("getBattery" in navigator) {
-                    const battery = await (navigator as any).getBattery();
+                    const battery = await (navigator as NavigatorWithBattery).getBattery();
                     setBatteryData({
                         charging: battery.charging,
                         level: battery.level * 100,

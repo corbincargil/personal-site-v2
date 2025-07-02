@@ -7,13 +7,12 @@ import { ReactNode } from "react";
 
 interface DraggableItemProps {
     id: string;
-    isDragging?: boolean;
     children: ReactNode;
     position: { x: number; y: number };
 }
 
 /** Wrapper for DesktopItems to make them draggable. */
-export default function DraggableItem({ id, isDragging, children, position }: DraggableItemProps) {
+export default function DraggableItem({ id, children, position }: DraggableItemProps) {
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id,
     });

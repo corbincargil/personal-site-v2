@@ -1,4 +1,3 @@
-import { Modal } from "@/app/_components/modal";
 import { BatteryData } from ".";
 
 export default function BatteryModal({
