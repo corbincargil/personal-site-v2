@@ -130,10 +130,10 @@ export default function TextFileWindow({ windowData }: TextFileWindowProps) {
         <div
             ref={windowRef}
             className={cn(
-                "fixed bg-stone-800/90 backdrop-blur-md outline outline-stone-700 rounded-lg shadow-2xl",
+                "fixed bg-card backdrop-blur-md outline outline-stone-700 rounded-lg shadow-2xl",
                 isDragging && "cursor-grabbing",
                 isResizing && "cursor-nw-resize",
-                windowData.isFocused ? "outline-stone-500" : "outline-stone-700"
+                windowData.isFocused && "outline-stone-500"
             )}
             style={{
                 left: `${windowData.position.x}px`,

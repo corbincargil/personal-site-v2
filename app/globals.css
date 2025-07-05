@@ -82,15 +82,15 @@
 .dark {
     --background: hsl(0, 0%, 5%);
     --foreground: hsl(0, 0%, 98.5%);
-    --card: hsl(0, 0%, 20.5%);
+    --card: hsl(0, 0%, 13%);
     --card-foreground: hsl(0, 0%, 98.5%);
     --popover: hsl(0, 0%, 14%);
     --popover-foreground: hsl(0, 0%, 98.5%);
     --primary: hsl(0, 0%, 92.2%);
     --primary-foreground: hsl(0, 0%, 20.5%);
-    --secondary: hsl(0, 0%, 26.9%);
+    --secondary: hsl(0, 0%, 20.9%);
     --secondary-foreground: hsl(0, 0%, 98.5%);
-    --muted: hsl(0, 0%, 26.9%);
+    --muted: hsl(0, 0%, 16%);
     --muted-foreground: hsl(0, 0%, 70.8%);
     --accent: hsl(0, 0%, 26.9%);
     --accent-foreground: hsl(0, 0%, 98.5%);

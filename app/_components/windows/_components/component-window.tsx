@@ -122,10 +122,11 @@ export default function ComponentWindow({ windowData }: ComponentWindowProps) {
         <div
             ref={windowRef}
             className={cn(
-                "fixed bg-stone-800/90 backdrop-blur-md outline outline-stone-700 rounded-lg shadow-2xl",
+                "fixed overflow-hidden bg-card backdrop-blur-md outline outline-stone-700 rounded-lg shadow-2xl",
                 isDragging && "cursor-grabbing",
                 isResizing && "cursor-nw-resize",
-                windowData.isFocused ? "outline-stone-500" : "outline-stone-700"
+                windowData.isFocused && "outline-stone-500",
+                windowData.className
             )}
             style={{
                 left: `${windowData.position.x}px`,
@@ -143,7 +144,7 @@ export default function ComponentWindow({ windowData }: ComponentWindowProps) {
             />
             <div
                 className={cn(
-                    "p-1 h-full overflow-auto [&::-webkit-scrollbar]:w-[2px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-stone-600/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-stone-600/70",
+                    "h-full overflow-auto [&::-webkit-scrollbar]:w-[2px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-stone-600/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-stone-600/70",
                     !windowData.isFocused && "opacity-50"
                 )}>
                 {windowData.content}

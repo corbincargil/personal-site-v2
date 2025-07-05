@@ -9,6 +9,7 @@ export interface BaseWindowData {
     zIndex: number;
     isFocused: boolean;
     title: string;
+    header?: "ghost" | "default";
 }
 
 export interface FolderWindowData extends BaseWindowData {
@@ -40,6 +41,7 @@ export interface ComponentWindowData extends BaseWindowData {
     content: React.ReactNode;
     size?: { width: number; height: number };
     resizable?: boolean;
+    className?: string;
 }
 
 export type WindowData = FolderWindowData | TextFileWindowData | ComponentWindowData;

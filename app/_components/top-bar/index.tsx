@@ -1,3 +1,4 @@
+"use client";
 import {
     Menubar,
     MenubarContent,
@@ -6,12 +7,25 @@ import {
     MenubarTrigger,
 } from "@/components/ui/menubar";
 import Image from "next/image";
-import { LogoItem, FinderItem, MenuItems } from "./menu-items";
+import { LogoMenu, FinderMenu, OtherMenus } from "./menu-items";
 import DateTime from "./_components/date-time";
 import { CircleUserRound } from "lucide-react";
 import Battery from "./_components/battery";
+import { useWindows } from "../windows/use-windows";
+import { MenuItem } from "./menu-items";
+import { ComponentWindowData } from "../windows/types";
 
 export default function TopBar() {
+    const { openComponentWindow } = useWindows();
+
+    const handleMenuItemClick = (item: MenuItem) => {
+        switch (item.windowType) {
+            case "component":
+                openComponentWindow(item.window as ComponentWindowData);
+                break;
+        }
+    };
+
     return (
         <div className="px-2 flex flex-row justify-between items-center h-6 w-full bg-foreground/60">
             <Menubar className="flex-row flex gap-2 text-background p-0">
@@ -27,29 +41,44 @@ export default function TopBar() {
                         />
                     </MenubarTrigger>
                     <MenubarContent>
-                        {LogoItem.items.map((item) => (
-                            <MenubarItem key={item}>{item}</MenubarItem>
+                        {LogoMenu.items.map((item) => (
+                            <MenubarItem
+                                key={item.label}
+                                onClick={() => handleMenuItemClick(item)}
+                                disabled={!item.window}>
+                                {item.label}
+                            </MenubarItem>
                         ))}
                     </MenubarContent>
                 </MenubarMenu>
                 <MenubarMenu>
                     <MenubarTrigger className="font-bold mx-1 h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">
-                        {FinderItem.label}
+                        {FinderMenu.title}
                     </MenubarTrigger>
                     <MenubarContent>
-                        {FinderItem.items.map((item) => (
-                            <MenubarItem key={item}>{item}</MenubarItem>
+                        {FinderMenu.items.map((item) => (
+                            <MenubarItem
+                                key={item.label}
+                                onClick={() => handleMenuItemClick(item)}
+                                disabled={!item.window}>
+                                {item.label}
+                            </MenubarItem>
                         ))}
                     </MenubarContent>
                 </MenubarMenu>
-                {MenuItems.map((item) => (
-                    <MenubarMenu key={item.label}>
+                {OtherMenus.map((item) => (
+                    <MenubarMenu key={item.title}>
                         <MenubarTrigger className="h-full py-1 rounded-sm focus:bg-inherit focus:text-inherit">
-                            {item.label}
+                            {item.title}
                         </MenubarTrigger>
                         <MenubarContent>
                             {item.items.map((item) => (
-                                <MenubarItem key={item}>{item}</MenubarItem>
+                                <MenubarItem
+                                    key={item.label}
+                                    onClick={() => handleMenuItemClick(item)}
+                                    disabled={!item.window}>
+                                    {item.label}
+                                </MenubarItem>
                             ))}
                         </MenubarContent>
                     </MenubarMenu>

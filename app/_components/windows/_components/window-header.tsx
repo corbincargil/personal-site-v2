@@ -15,20 +15,25 @@ export default function WindowHeader({
     return (
         <div
             className={cn(
-                "flex items-center justify-between cursor-move select-none z-10 bg-stone-700/50 w-full h-8 px-3 rounded-t-lg",
-                isDragging && "cursor-grabbing"
+                "flex items-center justify-between cursor-move select-none z-10 bg-muted w-full h-8 px-3 rounded-t-lg border-b border-stone-900 shadow-md",
+                isDragging && "cursor-grabbing",
+                windowData.isFocused && "bg-secondary",
+                windowData.header === "ghost" && "bg-transparent border-none shadow-none"
             )}
             onMouseDown={handleDragStart}>
             <div className="flex gap-2">
                 <div
-                    className="h-3 w-3 rounded-full bg-red-500 cursor-pointer hover:bg-red-400"
+                    className={cn(
+                        "h-3 w-3 rounded-full bg-stone-600 cursor-pointer hover:bg-destructive/80",
+                        windowData.isFocused && "bg-red-500"
+                    )}
                     onClick={(e) => {
                         e.stopPropagation();
                         closeWindow(windowData.id);
                     }}
                 />
-                <div className="h-3 w-3 rounded-full bg-stone-400" />
-                <div className="h-3 w-3 rounded-full bg-stone-400" />
+                <div className="h-3 w-3 rounded-full bg-stone-600" />
+                <div className="h-3 w-3 rounded-full bg-stone-600" />
             </div>
             <div
                 className={cn(

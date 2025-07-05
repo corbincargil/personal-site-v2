@@ -10,7 +10,7 @@ export const initialItems: DesktopItemType[] = [
         windowType: "text-file",
         windowData: {
             content:
-                "Hi there, my name is Corbin and I'm a full stack developer and business analyst based in Texas. I'm passionate about creating high grade web apps that allow users to focus less on software and more on getting stuff done. I enjoy problem solving, reading, and working out.",
+                "Hi there, my name is Corbin and I'm a full stack developer and business analyst based in Texas. I'm passionate about creating high grade web apps that allow users to focus less on software and more on getting stuff done. I enjoy problem solving, reading, and working out.\n\n Click the logo in the top-left to learn more. ",
             fileName: "Bio.txt",
         },
     },
