@@ -16,12 +16,12 @@ export default function AppInfo() {
         },
         {
             label: "Backend",
-            value: "Node.js, Postgres",
+            value: "Node.js",
         },
-        {
-            label: "Leadership",
-            value: "Team lead, BA",
-        },
+        // {
+        //     label: "Leadership",
+        //     value: "Team lead, BA",
+        // },
     ];
     return (
         <div className="w-full overflow-hidden">
@@ -34,8 +34,7 @@ export default function AppInfo() {
                     height={120}
                     className="mx-auto"
                     quality={100}
-                    priority
-                    unoptimized
+                    draggable={false}
                 />
             </div>
 
