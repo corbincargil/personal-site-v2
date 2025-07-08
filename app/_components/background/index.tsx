@@ -2,12 +2,13 @@ import Image from "next/image";
 
 export default function Background() {
     return (
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute bg-black inset-0 -z-10">
             <Image
                 src="/background.jpg"
-                className="object-cover w-full h-full"
+                className="object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[1000px]"
                 alt="background"
-                fill
+                width={1000}
+                height={1000}
                 priority
                 quality={100}
             />
