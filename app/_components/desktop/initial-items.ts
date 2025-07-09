@@ -4,7 +4,7 @@ export const initialItems: DesktopItemType[] = [
     {
         id: "bio",
         name: "Bio.txt",
-        icon: "/file-text.svg",
+        icon: "/text-icon.png",
         position: { x: 20, y: 20 },
         type: "file",
         windowType: "text-file",
@@ -17,7 +17,7 @@ export const initialItems: DesktopItemType[] = [
     {
         id: "projects",
         name: "Projects",
-        icon: "/folder-closed.svg",
+        icon: "/folder-icon.png",
         position: { x: 100, y: 20 },
         type: "folder",
         windowType: "folder",
@@ -25,7 +25,7 @@ export const initialItems: DesktopItemType[] = [
             {
                 id: "project-1",
                 name: "Project 1.txt",
-                icon: "/file-text.svg",
+                icon: "/text-icon.png",
                 position: { x: 16, y: 36 },
                 type: "file",
                 windowType: "text-file",
@@ -38,7 +38,7 @@ export const initialItems: DesktopItemType[] = [
             {
                 id: "project-2",
                 name: "Project 2.txt",
-                icon: "/file-text.svg",
+                icon: "/text-icon.png",
                 position: { x: 96, y: 36 },
                 type: "file",
                 windowType: "text-file",
@@ -51,10 +51,38 @@ export const initialItems: DesktopItemType[] = [
         ],
     },
     {
+        id: "socials",
+        name: "Socials",
+        icon: "/folder-icon.png",
+        position: { x: 180, y: 20 },
+        type: "folder",
+        windowType: "folder",
+        contents: [
+            {
+                id: "github",
+                name: "Github",
+                icon: "/github-mark-white.png",
+                position: { x: 16, y: 36 },
+                type: "file",
+                windowType: "web-link",
+                url: "https://github.com/corbincargil",
+            },
+            {
+                id: "linkedin",
+                name: "LinkedIn",
+                icon: "/linkedin-logo.png",
+                position: { x: 96, y: 36 },
+                type: "file",
+                windowType: "web-link",
+                url: "https://linkedin.com/in/corbin-cargil-65b4271b5",
+            },
+        ],
+    },
+    {
         id: "resume",
         name: "Resume.pdf",
-        icon: "/file-text.svg",
-        position: { x: 180, y: 20 },
+        icon: "/text-icon.png",
+        position: { x: 340, y: 20 },
         type: "file",
         windowType: "text-file",
         windowData: {
@@ -65,7 +93,7 @@ export const initialItems: DesktopItemType[] = [
     {
         id: "long-name",
         name: "Something with a really long name to see what the text looks like im going to keep going until something happens that  i don't want to happen",
-        icon: "/file-text.svg",
+        icon: "/text-icon.png",
         position: { x: 260, y: 20 },
         type: "file",
         windowType: "text-file",

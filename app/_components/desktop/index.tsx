@@ -37,6 +37,7 @@ export default function Desktop() {
         onSelect: setSelectedId,
     });
 
+    //todo: refactor this to utils folder
     const handleDoubleClick = (item: DesktopItemType) => {
         if (item.windowType === "folder" && item.contents) {
             openFolderWindow({
@@ -65,6 +66,8 @@ export default function Desktop() {
                     size: config.defaultSize,
                 });
             }
+        } else if (item.windowType === "web-link" && item.url) {
+            window.open(item.url, "_blank");
         }
     };
 
@@ -83,6 +86,7 @@ export default function Desktop() {
                                 id={item.id}
                                 name={item.name}
                                 icon={item.icon}
+                                isLink={item.url ? true : false}
                                 isSelected={item.id === selectedId}
                                 setSelected={(selected) => setSelectedId(selected ? item.id : null)}
                                 onDoubleClick={() => handleDoubleClick(item)}

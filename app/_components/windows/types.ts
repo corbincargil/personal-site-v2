@@ -1,6 +1,6 @@
 import { Position } from "../desktop/types";
 
-export type WindowType = "folder" | "text-file" | "component";
+export type WindowType = "folder" | "text-file" | "component" | "web-link";
 
 export interface BaseWindowData {
     id: string;
@@ -20,6 +20,7 @@ export interface FolderWindowData extends BaseWindowData {
         icon: string;
         position: Position;
         type: "file" | "folder";
+        url?: string;
         contents?: Array<{
             id: string;
             name: string;

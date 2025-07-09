@@ -10,6 +10,7 @@ export default function DesktopItem({
     isSelected,
     setSelected,
     onDoubleClick,
+    isLink,
 }: DesktopItemProps) {
     const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const clickCountRef = useRef(0);
@@ -46,12 +47,12 @@ export default function DesktopItem({
 
     return (
         <div
-            className="flex flex-col items-center gap-1 w-16"
+            className="w-18 h-26"
             style={styles}
             onClick={handleClick}
             onBlur={() => setSelected?.(false)}
             tabIndex={0}>
-            <DesktopIcon name={name} icon={icon} isSelected={isSelected} />
+            <DesktopIcon name={name} icon={icon} isSelected={isSelected} isLink={isLink} />
         </div>
     );
 }

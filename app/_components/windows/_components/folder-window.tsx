@@ -124,6 +124,7 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
         return null;
     }
 
+    //todo: refactor this to utils folder
     const handleDoubleClick = (item: DesktopItemType) => {
         if (item.windowType === "folder" && item.contents) {
             openFolderWindow({
@@ -152,6 +153,8 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
                     size: config.defaultSize,
                 });
             }
+        } else if (item.windowType === "web-link" && item.url) {
+            window.open(item.url, "_blank");
         }
     };
 
@@ -191,6 +194,7 @@ export default function FolderWindow({ windowData }: FolderWindowProps) {
                             name={item.name}
                             icon={item.icon}
                             position={item.position}
+                            isLink={item.url ? true : false}
                             isSelected={item.id === selectedId}
                             setSelected={(selected) => setSelectedId(selected ? item.id : null)}
                             onDoubleClick={() => handleDoubleClick(item)}

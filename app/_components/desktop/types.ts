@@ -9,6 +9,7 @@ export interface DesktopIconProps {
     name: string;
     icon: string;
     isSelected?: boolean;
+    isLink?: boolean;
 }
 
 export interface DesktopItemType {
@@ -20,6 +21,7 @@ export interface DesktopItemType {
     contents?: DesktopItemType[];
     windowType?: WindowType;
     componentId?: string;
+    url?: string;
     windowData?: {
         content?: string;
         fileName?: string;
@@ -36,6 +38,7 @@ export interface DesktopItemProps {
     name: string;
     icon: string;
     position?: Position;
+    isLink?: boolean;
     isSelected?: boolean;
     setSelected?: (selected: boolean) => void;
     isDragging?: boolean;
