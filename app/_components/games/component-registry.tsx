@@ -15,7 +15,7 @@ export interface ComponentRegistry {
 export const componentRegistry: ComponentRegistry = {
     "etch-a-sketch": {
         component: EtchASketchComponent,
-        defaultSize: { width: 840, height: 645 },
+        defaultSize: { width: 1080, height: 800 },
         title: "Etch A Sketch",
         resizable: true,
     },
