@@ -12,7 +12,7 @@ export default function BatteryModal({
     onOptIn: () => void;
 }) {
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 m-2">
             <div className="flex items-center justify-between">
                 <span className="font-semibold">Battery Level</span>
                 <span className="text-2xl font-bold">{Math.round(batteryData?.level || 0)}%</span>
