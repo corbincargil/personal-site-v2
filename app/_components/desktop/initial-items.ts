@@ -76,6 +76,7 @@ export const initialItems: DesktopItemType[] = [
                 windowType: "web-link",
                 url: "https://linkedin.com/in/corbin-cargil-65b4271b5",
             },
+            //todo: add blog site
         ],
     },
     {

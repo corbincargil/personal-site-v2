@@ -11,13 +11,26 @@ export default function AppInfo() {
             value: "Full-stack + PM",
         },
         {
-            label: "Frontend",
-            value: "React, Next.js",
+            label: "Location",
+            value: "San Antonio, TX",
         },
         {
-            label: "Backend",
-            value: "Node.js",
+            label: "Focus",
+            value: "Backend services",
         },
+
+        // {
+        //     label: "Education",
+        //     value: "Self-taught",
+        // },
+        // {
+        //     label: "Languages",
+        //     value: "TypeScript, SQL, HTML, CSS,",
+        // },
+        // {
+        //     label: "Frameworks",
+        //     value: "React, Tailwind, Node.js, Express, PostgreSQL, Docker",
+        // },
         // {
         //     label: "Leadership",
         //     value: "Team lead, BA",
