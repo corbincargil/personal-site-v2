@@ -23,30 +23,22 @@ export const initialItems: DesktopItemType[] = [
         windowType: "folder",
         contents: [
             {
-                id: "project-1",
-                name: "Project 1.txt",
-                icon: "/text-icon.png",
+                id: "kosmos",
+                name: "Kosmos",
+                icon: "/github-mark-white.png",
                 position: { x: 16, y: 36 },
                 type: "file",
-                windowType: "text-file",
-                windowData: {
-                    content:
-                        "This is a project that I'm working on. It's a web app that allows users to...",
-                    fileName: "Project 1.txt",
-                },
+                windowType: "web-link",
+                url: "https://github.com/corbincargil/kosmos",
             },
             {
-                id: "project-2",
-                name: "Project 2.txt",
-                icon: "/text-icon.png",
+                id: "bop",
+                name: "Bop",
+                icon: "/github-mark-white.png",
                 position: { x: 96, y: 36 },
                 type: "file",
-                windowType: "text-file",
-                windowData: {
-                    content:
-                        "This is a project that I'm working on. It's a web app that allows users to...",
-                    fileName: "Project 2.txt",
-                },
+                windowType: "web-link",
+                url: "https://github.com/corbincargil/bop",
             },
         ],
     },
