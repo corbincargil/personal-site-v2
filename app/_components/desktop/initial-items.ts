@@ -25,7 +25,7 @@ export const initialItems: DesktopItemType[] = [
             {
                 id: "kosmos",
                 name: "Kosmos",
-                icon: "/github-mark-white.png",
+                icon: "/kosmos-logo.png",
                 position: { x: 10, y: 36 },
                 type: "file",
                 windowType: "web-link",
